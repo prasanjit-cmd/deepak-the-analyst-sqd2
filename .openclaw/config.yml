@@ -1,0 +1,130 @@
+{
+  "name": "Deepak The Analyst",
+  "description": "A read-mostly GitHub portfolio analysis agent that discovers repositories, harvests evidence from GitHub REST and optional GraphQL/webhooks, infers product gaps from repo signals, prioritizes candidate features, and reports ranked per-repo and cross-repo backlogs with evidence traceability. The design prefers authenticated GitHub API access, webhook-first freshness, capped collection, conditional requests, and minimal snapshot storage for change-aware repeat analyses.",
+  "skills": [
+    "github-repo-discovery",
+    "github-signal-harvester",
+    "github-portfolio-graphql-summary",
+    "feature-gap-analyzer",
+    "backlog-prioritizer",
+    "feature-reporter",
+    "github-webhook-ingest",
+    "github-cli-diagnostics"
+  ],
+  "triggers": [],
+  "channels": [],
+  "runtimeInputs": [
+    {
+      "key": "GITHUB_TOKEN",
+      "required": true,
+      "label": "GitHub Access Token",
+      "inputType": "text",
+      "defaultValue": "",
+      "group": "Authentication"
+    },
+    {
+      "key": "GITHUB_OWNER",
+      "required": true,
+      "label": "Default GitHub Owner",
+      "inputType": "text",
+      "defaultValue": "",
+      "group": "API Configuration"
+    },
+    {
+      "key": "GITHUB_REPOSITORIES",
+      "required": true,
+      "label": "Included Repositories",
+      "inputType": "text",
+      "defaultValue": "",
+      "group": "Behavior"
+    },
+    {
+      "key": "GITHUB_EXCLUDED_REPOSITORIES",
+      "required": true,
+      "label": "Excluded Repositories",
+      "inputType": "text",
+      "defaultValue": "",
+      "group": "Behavior"
+    },
+    {
+      "key": "MAX_REPOS_PER_RUN",
+      "required": true,
+      "label": "Maximum Repositories Per Run",
+      "inputType": "number",
+      "defaultValue": "20",
+      "group": "Behavior"
+    },
+    {
+      "key": "CACHE_TTL_MINUTES",
+      "required": true,
+      "label": "Cache TTL (Minutes)",
+      "inputType": "number",
+      "defaultValue": "60",
+      "group": "API Configuration"
+    },
+    {
+      "key": "GITHUB_API_VERSION",
+      "required": true,
+      "label": "GitHub API Version",
+      "inputType": "text",
+      "defaultValue": "2026-03-10",
+      "group": "API Configuration"
+    },
+    {
+      "key": "FEATURE_LOOKBACK_DAYS",
+      "required": true,
+      "label": "Feature Lookback Window (Days)",
+      "inputType": "number",
+      "defaultValue": "180",
+      "group": "Behavior"
+    },
+    {
+      "key": "MAX_ISSUES_PER_REPO",
+      "required": true,
+      "label": "Maximum Issues Per Repository",
+      "inputType": "number",
+      "defaultValue": "100",
+      "group": "Behavior"
+    },
+    {
+      "key": "MAX_PRS_PER_REPO",
+      "required": true,
+      "label": "Maximum Pull Requests Per Repository",
+      "inputType": "number",
+      "defaultValue": "100",
+      "group": "Behavior"
+    },
+    {
+      "key": "MAX_COMMITS_PER_REPO",
+      "required": true,
+      "label": "Maximum Commits Per Repository",
+      "inputType": "number",
+      "defaultValue": "200",
+      "group": "Behavior"
+    },
+    {
+      "key": "ANALYSIS_MIN_ACTIVITY_THRESHOLD",
+      "required": true,
+      "label": "Minimum Activity Threshold",
+      "inputType": "number",
+      "defaultValue": "5",
+      "group": "Behavior"
+    },
+    {
+      "key": "REPORT_TOP_FEATURES",
+      "required": true,
+      "label": "Top Features To Report",
+      "inputType": "number",
+      "defaultValue": "10",
+      "group": "Behavior"
+    },
+    {
+      "key": "GITHUB_WEBHOOK_SECRET",
+      "required": true,
+      "label": "GitHub Webhook Secret",
+      "inputType": "text",
+      "defaultValue": "",
+      "group": "Authentication"
+    }
+  ]
+}
